@@ -22,3 +22,15 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Dependacies
+- Vue
+- VueRouter
+- Vuex
+- axios
+- Vant-ui
+- eslint
+- less/less-loader
+- mockjs
+- babel-plugin-import
+
