@@ -1,11 +1,11 @@
 @import "./normalize.css";
 
 :root {
-  --color-text: #666;
-  --color-high-text: #ff5777;
+  --color-text: #222;
+  --color-high-text: #c8b4eb;
   --color-tint: #ff8198;
   --color-background: #fff;
-  --font-size: 14px;
+  --font-size: 16px;
   --line-height: 1.5;
 }
 

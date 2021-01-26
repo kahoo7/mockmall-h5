@@ -3,6 +3,8 @@
     <keep-alive>
       <router-view />
     </keep-alive>
+
+    <!-- 底部tabbar -->
     <self-tabbar />
   </div>
 </template>

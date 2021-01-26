@@ -3,10 +3,7 @@ export default [
     path: '/',
     alias: '/home',
     name: 'Home',
-    component: () => import('@/views/Home/Index.vue'),
-    meta: {
-      title: '首页'
-    }
+    component: () => import('@/views/Home/Index.vue')
   },
   {
     path: '/category',
@@ -14,6 +11,14 @@ export default [
     component: () => import('@/views/Category/Index.vue'),
     meta: {
       title: '分类'
+    }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('@/views/Search/Index.vue'),
+    meta: {
+      title: '搜索'
     }
   },
   {
