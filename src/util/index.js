@@ -5,7 +5,7 @@ export const setTitle = (title = 'MockMa11') => {
 
 // 格式化日期
 export const formatDate = (date = new Date()) => {
-  const yy = date.getFullYear()
+  // const yy = date.getFullYear()
   const mm = date.getMonth() + 1
   const dd = date.getDate()
   const day = date.getDay()
@@ -39,4 +39,13 @@ export const formatDate = (date = new Date()) => {
 // 背景色重置为白色
 export const bgcReset = (color = '#fff') => {
   window.document.body.style.background = color
+}
+
+// 表单序列化
+export const serialize = data => {
+  const list = []
+  Object.keys(data).forEach(ele => {
+    list.push(`${ele}=${data[ele]}`)
+  })
+  return list.join('&')
 }

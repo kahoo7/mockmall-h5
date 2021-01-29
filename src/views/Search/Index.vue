@@ -12,7 +12,7 @@
 export default {
   data() {
     return {
-      name: 'search'
+      name: '搜索'
     }
   }
 }
