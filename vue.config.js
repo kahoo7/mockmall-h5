@@ -15,7 +15,7 @@ module.exports = {
     proxy: {
       '/api': {
         // 本地服务接口地址
-        target: ' https://mock.presstime.cn/mock/60112b1c8215df0020a8ef6e/api',
+        target: 'https://mock.ryio.cn/mock/60112b1c8215df0020a8ef6e/api',
         ws: true,
         pathRewrite: {
           '^/api': '/'

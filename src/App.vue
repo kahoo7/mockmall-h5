@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <keep-alive>
+    <transition>
       <router-view />
-    </keep-alive>
-
+    </transition>
     <!-- 底部tabbar -->
-    <self-tabbar />
+    <self-tabbar class="fixed" />
   </div>
 </template>
 
@@ -23,5 +22,9 @@ export default {
 <style lang="scss">
 
 @import "assets/style/base.css";
-
+.fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
 </style>

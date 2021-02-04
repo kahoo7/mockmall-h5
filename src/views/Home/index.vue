@@ -10,9 +10,12 @@
       @pullingUp="pullUpLoadMore"
     >
 
-      <van-row style="background: #fff;">
-        <van-col :span="12" :offset="1">
-          <div class="home_date">{{ name }} {{ date }}</div>
+      <van-row class="home_date" style="background: #fff;">
+        <van-col class="title" :span="6" :offset="1">
+          <div>{{ name }}</div>
+        </van-col>
+        <van-col class="date" :span="11">
+          <div>{{ date }}</div>
         </van-col>
       </van-row>
       <van-row class="showbox">
@@ -50,14 +53,13 @@
 </template>
 
 <script>
-// 1.公共组件导入
+
 import SelfCard from '@/components/SelfCard.vue'
 import SelfScroll from '@/components/SelfScroll.vue'
-// 2.子组件导入
-// 3.功能函数导入
+
 import { formatDate } from '@/util/index.js'
 import { exRequest } from '@/api/Home'
-// 4.本组件对象
+
 export default {
   components: {
     SelfCard,
@@ -76,14 +78,17 @@ export default {
     this.onLoad()
   },
   methods: {
+    // 页面数据请求函数
     onLoad() {
       console.log('created')
       exRequest().then((res) => {
-        console.log(res)
+        console.log(res.data)
       })
     },
+
+    // better-scroll 部分函数
     contentScrollY(position) {
-      console.log('position: ', position)
+      // console.log('position: ', position)
     },
     pullUpLoadMore() {
       console.log('上拉加载更多')
@@ -94,15 +99,15 @@ export default {
 
 <style lang="less" scoped>
 .home_container {
-    height: 100vh;
-    width: 100%;
-    position: relative;
+  height: 100vh;
+  width: 100%;
+  position: relative;
   overflow: hidden;
 
   .content {
     position: absolute;
     top: 0;
-    bottom: 4.375rem;
+    bottom: 3.125rem;
     left: 0;
     right: 0;
     overflow: hidden;
@@ -110,6 +115,13 @@ export default {
       font-family: 'PingFangSC';
       font-size: 1rem;
       padding: .625rem .625rem;
+      .title {
+        font-size: 1.5rem;
+      }
+      .date {
+        height: 2rem;
+        line-height: 2rem;
+      }
     }
     .showbox {
       margin-top: 0;
