@@ -5,6 +5,7 @@
       show-action
       clearable
       placeholder="请输入搜索关键词"
+      shape="round"
       @search="onSearch"
     >
       <template slot="action">
@@ -35,7 +36,7 @@ export default {
 <style lang="less" scoped>
 .search_container {
   .search_button {
-    width: 3rem;
+    width: 2.25rem;
     text-align: center;
     color: var(--color-high-text)
   }
