@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <van-tabbar v-model="active">
-      <van-tabbar-item v-for="(item, index) in list" :key="index" replace :to="item.to">
+    <van-tabbar v-model="active" route @change="onChange">
+      <van-tabbar-item v-for="(item, index) in list" :key="index" replace :to="item.to" :name="item.name">
         <template #icon="props">
           <img :src="props.active ? item.icon.active : item.icon.inactive">
         </template>
@@ -15,10 +15,10 @@
 export default {
   data() {
     return {
-      active: 0,
+      active: 'home',
       list: [
         {
-          item: '主页',
+          name: 'home',
           to: '/home',
           icon: {
             active: require('../assets/image/selftabbar/home_active.png'),
@@ -26,7 +26,7 @@ export default {
           }
         },
         {
-          item: '分类',
+          name: 'category',
           to: '/category',
           icon: {
             active: require('../assets/image/selftabbar/cate_active.png'),
@@ -34,7 +34,7 @@ export default {
           }
         },
         {
-          item: '搜索',
+          name: 'search',
           to: '/search',
           icon: {
             active: require('../assets/image/selftabbar/search_active.png'),
@@ -42,7 +42,7 @@ export default {
           }
         },
         {
-          item: '购物车',
+          name: 'cart',
           to: '/cart',
           icon: {
             active: require('../assets/image/selftabbar/cart_active.png'),
@@ -50,7 +50,7 @@ export default {
           }
         },
         {
-          item: '我的',
+          name: 'mine',
           to: '/mine',
           icon: {
             active: require('../assets/image/selftabbar/mine_active.png'),
@@ -58,6 +58,11 @@ export default {
           }
         }
       ]
+    }
+  },
+  methods: {
+    onChange() {
+      // console.log(this.active)
     }
   }
 }
