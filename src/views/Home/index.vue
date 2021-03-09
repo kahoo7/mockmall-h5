@@ -117,6 +117,7 @@ export default {
       padding: .625rem .625rem;
       .title {
         font-size: 1.5rem;
+        text-align: center;
       }
       .date {
         height: 2rem;

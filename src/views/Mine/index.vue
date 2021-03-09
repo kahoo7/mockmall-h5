@@ -8,9 +8,39 @@
       @scroll="contentScrollY"
       @pullingUp="pullUpLoadMore"
     >
+      <!-- 我的：个人信息栏 -->
       <van-row class="mine_avatar">
         <van-col class="avatar">
           <div>{{ name }}</div>
+        </van-col>
+      </van-row>
+
+      <!-- 我的：收藏 足迹  -->
+      <van-row>
+        <van-col span="12">
+          <div class="collection-box">
+            <span class="box-name" />
+            <span class="box-number" />
+            <span class="arrow-right">></span>
+          </div>
+        </van-col>
+        <van-col span="12">
+          <div class="collection-box">
+            <span class="box-name" />
+            <span class="box-number" />
+            <span class="arrow-right">></span>
+          </div>
+        </van-col>
+      </van-row>
+
+      <!-- 我的：物流情况栏 -->
+      <van-row>
+        <van-col span="24" class="express-info">
+          <div>待付款</div>
+          <div>待发货</div>
+          <div>待收货</div>
+          <div>待评价</div>
+          <div>退换/售后</div>
         </van-col>
       </van-row>
     </self-scroll>
@@ -39,6 +69,7 @@ export default {
     this.onLoad()
   },
   methods: {
+    // 页面初始化函数 onLoad
     onLoad() {
       console.log('mine')
     },

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <transition>
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </transition>
     <!-- 底部tabbar -->
     <self-tabbar class="fixed" />
