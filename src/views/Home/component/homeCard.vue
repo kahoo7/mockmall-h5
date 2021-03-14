@@ -2,11 +2,12 @@
   <div class="container">
     <van-row>
       <van-col :span="24">
+        <!-- TODO: 替换成SWIPER -->
         <van-image
           class="selfCard_image"
           width="100%"
           height="100%"
-          fit="contain"
+          fit="cover"
           :src="src"
         />
       </van-col>
@@ -26,10 +27,7 @@
 </template>
 
 <script>
-// 1.公共组件导入
-// 2.子组件导入
-// 3.功能函数导入
-// 4.本组件对象
+
 export default {
   props: {
     title: {
@@ -60,7 +58,7 @@ export default {
 <style lang="less" scoped>
   .container {
     position: relative;
-    background-color: rgb(200, 180, 235);
+    // background-color: rgb(200, 180, 235);
     width: 100%;
     height: 31.25rem;
 
@@ -82,8 +80,8 @@ export default {
       }
 
       .selfCard_footer_content {
-        padding: .625rem;
-        font-size: 30px;
+        // padding: .625rem;
+        font-size: 1.875rem;
         background-color: transparent;
         color: #fff;
       }

@@ -55,7 +55,7 @@ export default {
       this.scroll && this.scroll.finishPullUp && this.scroll.finishPullUp()
     },
     refresh() {
-      // console.log('GoodsImageLoad');
+      console.log('GoodsImageLoad')
       this.scroll && this.scroll.refresh && this.scroll.refresh()
     }
   }
@@ -63,5 +63,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

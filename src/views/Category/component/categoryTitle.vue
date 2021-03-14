@@ -16,8 +16,8 @@
 export default {
   data() {
     return {
-      topTitle: 'Discover',
-      bottomTitle: 'Commodity'
+      topTitle: `Let's`,
+      bottomTitle: `Get Started !`
     }
   }
 }

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import SelfTabbar from '@/components/SelfTabbar'
+import SelfTabbar from '_c/selfTabbar'
 
 export default {
   name: 'App',

@@ -9,3 +9,10 @@ export const exRequest = () => {
     methods: 'get'
   })
 }
+
+export const getList = () => {
+  return request({
+    url: '/api/home/get-list',
+    methods: 'get'
+  })
+}

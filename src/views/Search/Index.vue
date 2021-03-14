@@ -11,7 +11,7 @@
     >
 
       <!-- 页面标题 -->
-      <search-title :name="name" />
+      <search-title />
 
       <!-- 搜索栏 -->
       <van-row class="search_bar">
@@ -49,11 +49,14 @@
 </template>
 
 <script>
-import SearchTitle from './SearchTitle.vue'
-import SearchHistory from './SearchHistory.vue'
-import SearchHotspot from './SearchHotspot'
-import SelfSearch from '@/components/SelfSearch.vue'
-import SelfScroll from '@/components/SelfScroll.vue'
+import SearchTitle from './searchTitle'
+import SearchHistory from './searchHistory'
+import SearchHotspot from './searchHotspot'
+import SelfSearch from '_c/selfSearch'
+import SelfScroll from '_c/selfScroll'
+
+// 从 util 导入辅助函数
+import { contentScrollY, pullUpLoadMore } from '@/util/bscroll'
 
 export default {
   components: {
@@ -69,7 +72,9 @@ export default {
       name: '选购',
       historyList: ['碗', 'die', 'apple', 'banana'],
       hotSpotList: [],
-      hotCategoryList: []
+      hotCategoryList: [],
+      contentScrollY: contentScrollY,
+      pullUpLoadMore: pullUpLoadMore
     }
   },
 
@@ -88,14 +93,14 @@ export default {
     },
     getHotSpotList() {
       console.log(`request(get): get HotSpot list.`)
-    },
-    // better-scroll 部分函数
-    contentScrollY(position) {
-      // console.log('position: ', position)
-    },
-    pullUpLoadMore() {
-      console.log('上拉加载更多')
     }
+    // // better-scroll 部分函数
+    // contentScrollY(position) {
+    //   // console.log('position: ', position)
+    // },
+    // pullUpLoadMore() {
+    //   console.log('上拉加载更多')
+    // }
   }
 }
 </script>

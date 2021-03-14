@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import HistoryItem from './HistoryItem.vue'
+import HistoryItem from './historyItem'
 export default {
   components: {
     HistoryItem

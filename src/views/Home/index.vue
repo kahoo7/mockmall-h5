@@ -1,6 +1,6 @@
 <template>
   <div class="home_container">
-
+    <!-- better-scroll组件 -->
     <self-scroll
       ref="scroll"
       class="content"
@@ -9,8 +9,8 @@
       @scroll="contentScrollY"
       @pullingUp="pullUpLoadMore"
     >
-
-      <van-row class="home_date" style="background: #fff;">
+      <!-- home: header -->
+      <van-row class="home_date" style="background: #fff">
         <van-col class="title" :span="6" :offset="1">
           <div>{{ name }}</div>
         </van-col>
@@ -18,81 +18,82 @@
           <div>{{ date }}</div>
         </van-col>
       </van-row>
-      <van-row class="showbox">
+
+      <!-- home： 海报卡片 -->
+      <van-row v-for="(item,index) in list" :key="index" class="showbox">
         <van-col :span="24">
-          <self-card :title="me" :content="content" :button-text="buttonText" />
+          <home-card
+            :title="item.title ? item.title : title"
+            :content="item.content ? item.content : content"
+            :button-text="item.btnText ? item.btnText : btnText"
+            :src="item.imgUrl ? item.imgUrl : imgUrl"
+            @click.native="handleClick(index)"
+          />
         </van-col>
       </van-row>
-      <van-row class="showbox">
-        <van-col :span="24">
-          <self-card :title="me" :content="content" :button-text="buttonText" />
-        </van-col>
-      </van-row>
-      <van-row class="showbox">
-        <van-col :span="24">
-          <self-card :title="me" :content="content" :button-text="buttonText" />
-        </van-col>
-      </van-row>
-      <van-row class="showbox">
-        <van-col :span="24">
-          <self-card :title="me" :content="content" :button-text="buttonText" />
-        </van-col>
-      </van-row>
-      <van-row class="showbox">
-        <van-col :span="24">
-          <self-card :title="me" :content="content" :button-text="buttonText" />
-        </van-col>
-      </van-row>
-      <van-row class="showbox">
-        <van-col :span="24">
-          <self-card :title="me" :content="content" :button-text="buttonText" />
-        </van-col>
-      </van-row>
+
     </self-scroll>
   </div>
 </template>
 
 <script>
+import SelfScroll from '_c/selfScroll'
+import HomeCard from './component/homeCard'
 
-import SelfCard from '@/components/SelfCard.vue'
-import SelfScroll from '@/components/SelfScroll.vue'
+import { getList } from '@/api/home'
 
 import { formatDate } from '@/util/index.js'
-import { exRequest } from '@/api/Home'
+
+import { contentScrollY, pullUpLoadMore } from '@/util/bscroll.js'
 
 export default {
   components: {
-    SelfCard,
+    HomeCard,
     SelfScroll
   },
   data() {
     return {
       name: 'Today',
       date: formatDate(),
-      me: '间 或 来 袭',
-      content: '超人气蝴蝶结专场开启本周贱货即可呈现',
-      buttonText: '排队抢购'
+      title: '',
+      content: '',
+      btnText: '',
+      imgUrl: '',
+      list: [],
+      contentScrollY: contentScrollY,
+      pullUpLoadMore: pullUpLoadMore
     }
   },
   created() {
     this.onLoad()
   },
+  mounted() {
+    getList()
+      .then((res) => {
+        console.log('home: getList')
+        this.list = res.data.data
+      })
+      .then(() => this.$refs.scroll.refresh())
+      .catch((error) => console.log(error.message))
+  },
   methods: {
     // 页面数据请求函数
     onLoad() {
-      console.log('created')
-      exRequest().then((res) => {
-        console.log(res.data)
-      })
+      console.log('home: onload...')
     },
-
-    // better-scroll 部分函数
-    contentScrollY(position) {
-      // console.log('position: ', position)
-    },
-    pullUpLoadMore() {
-      console.log('上拉加载更多')
+    // homeCard组件 @click.native 处理函数
+    // TODO: 处理点击事件
+    handleClick(index) {
+      console.log(index)
     }
+    // // better-scroll 部分函数
+    // contentScrollY(position) {
+    //   // console.log('position: ', position)
+    // },
+    // pullUpLoadMore() {
+    //   console.log('上拉加载更多')
+    //   this.$refs.scroll.refresh()
+    // }
   }
 }
 </script>
@@ -112,9 +113,9 @@ export default {
     right: 0;
     overflow: hidden;
     .home_date {
-      font-family: 'PingFangSC';
+      font-family: "PingFangSC";
       font-size: 1rem;
-      padding: .625rem .625rem;
+      padding: 0.625rem 0.625rem;
       .title {
         font-size: 1.5rem;
         text-align: center;
@@ -129,6 +130,5 @@ export default {
       margin-bottom: 3.125rem;
     }
   }
-
 }
 </style>

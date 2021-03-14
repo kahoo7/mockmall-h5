@@ -6,12 +6,12 @@ export default [
   {
     path: '/home',
     name: 'Home',
-    component: () => import('@/views/Home/Index.vue')
+    component: () => import('@/views/home/index')
   },
   {
     path: '/category',
     name: 'Category',
-    component: () => import('@/views/Category/Index.vue'),
+    component: () => import('@/views/category/index'),
     meta: {
       title: '分类'
     }
@@ -19,7 +19,7 @@ export default [
   {
     path: '/search',
     name: 'Search',
-    component: () => import('@/views/Search/Index.vue'),
+    component: () => import('@/views/search/index'),
     meta: {
       title: '搜索'
     }
@@ -27,7 +27,7 @@ export default [
   {
     path: '/cart',
     name: 'Cart',
-    component: () => import('@/views/Cart/Index.vue'),
+    component: () => import('@/views/cart/index'),
     meta: {
       title: '购物车'
     }
@@ -35,7 +35,7 @@ export default [
   {
     path: '/mine',
     name: 'Mine',
-    component: () => import('@/views/Mine/Index.vue'),
+    component: () => import('@/views/mine/index'),
     meta: {
       title: '我的'
     }
